@@ -20,22 +20,7 @@ def calculate_shipping_fee(order_value: int, distance: int) -> int:
     final_shipping_fee = int(base_shipping_fee * (1 - discount))
     return final_shipping_fee
 
-# Kiểm thử biên
 if __name__ == "__main__":
-    # Kiểm thử theo bảng quyết định
-    test_cases_table = [
-        (-1, 5),          # Lỗi
-        (50000, -1),      # Lỗi
-        (50000, 5),       # 20.000 VND
-        (50000, 10),      # 30.000 VND
-        (50000, 101),     # Lỗi
-        (300000, 5),      # 14.000 VND
-        (300000, 10),     # 21.000 VND
-        (600000, 5),      # 10.000 VND
-        (600000, 10),     # 15.000 VND
-        (6000000, 5),     # Lỗi
-    ]
-
     # Kiểm thử theo dòng điều khiển
     test_cases_flow = [
         # Kiểm thử biên theo Giá trị đơn hàng
