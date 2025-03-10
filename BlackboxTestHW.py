@@ -36,36 +36,19 @@ if __name__ == "__main__":
         (6000000, 5),     # Lỗi
     ]
 
-    # Kiểm thử theo biên
-    test_cases_boundary = [
+    # Kiểm thử theo dòng điều khiển
+    test_cases_flow = [
         # Kiểm thử biên theo Giá trị đơn hàng
-        (-1, 50),          # Lỗi
-        (0, 50),          # Lỗi
-        (1, 50),          # 30.000 VND
-        (4999999, 50),    # 15.000 VND
-        (5000000, 50),    # 15.000 VND
-        (5000001, 50),    # Lỗi
-        (2500000, 50),    # 15.000 VND
-        
-        # Kiểm thử biên theo Khoảng cách
-        (2500000, -1),     # Lỗi
-        (2500000, 0),      # 15.000 VND
-        (2500000, 1),      # 15.000 VND
-        (2500000, 99),     # 21.000 VND
-        (2500000, 100),    # 21.000 VND
-        (2500000, 101),     # 21.000 VND
+        (-1, 1),          # Lỗi
+        (1, -1),          # Lỗi
+        (50000, 5),    # 20.000 VND
+        (50000, 10),    # 30.000 VND
+        (100000, 5),    # 14.000 VND
+        (600000, 5),    # 10.000 VND
     ]
-
-    print("Table Testing")
-    for order_value, distance in test_cases_table:
-        try:
-            fee = calculate_shipping_fee(order_value, distance)
-            print(f"Order: {order_value} VND, Distance: {distance} km -> Shipping Fee: {fee} VND")
-        except ValueError as e:
-            print(f"Error: {e}")
-    
-    print("Boundary Testing")
-    for order_value, distance in test_cases_boundary:
+ 
+    print("Flow Chart Testing")
+    for order_value, distance in test_cases_flow:
         try:
             fee = calculate_shipping_fee(order_value, distance)
             print(f"Order: {order_value} VND, Distance: {distance} km -> Shipping Fee: {fee} VND")
